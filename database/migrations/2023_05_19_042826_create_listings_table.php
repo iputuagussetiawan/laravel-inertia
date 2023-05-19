@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->unsignedTinyInteger('beds');
             $table->unsignedTinyInteger('baths');
-            $table->unsignedTinyInteger('area');
+            $table->unsignedSmallInteger('area');
 
             $table->tinyText('city');
             $table->tinyText('code');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->tinyText('street_nr');
 
             $table->unsignedInteger('price');
+            
         });
     }
 
