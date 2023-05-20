@@ -12,6 +12,7 @@ class ListingController extends Controller
      */
     public function index()
     {
+        
         return inertia(
             'Listing/Index',
             [
