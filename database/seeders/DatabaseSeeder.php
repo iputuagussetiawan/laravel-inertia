@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'is_admin'=>true
+        ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Test User',
@@ -24,8 +29,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test2@example.com',
         ]);
 
-        \App\Models\Listing::factory(20)->create([
+        \App\Models\Listing::factory(10)->create([
             'by_user_id'=>1
+        ]);
+        \App\Models\Listing::factory(10)->create([
+            'by_user_id'=>2
         ]);
 
 
