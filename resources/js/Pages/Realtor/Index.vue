@@ -14,17 +14,20 @@
                 <div class="flex items-center gap-1 text-gray-600 dark:text-gray-300">
                     <Link class="btn-outline text-xs font-medium">Preview</Link>
                     <Link class="btn-outline text-xs font-medium">Edit</Link>
-                    <Link class="btn-outline text-xs font-medium">Delete</Link>
+                    <Link class="btn-outline text-xs font-medium"
+                        :href="route('realtor.listing.destroy', { listing: listing.id })" as="button" method="delete">
+                    Delete
+                    </Link>
                 </div>
             </div>
         </Box>
     </section>
 </template>
 <script setup>
-    import ListingAddress from '@/Components/ListingAddress.vue'
-    import ListingSpace from '@/Components/ListingSpace.vue'
-    import Price from '@/Components/Price.vue'
-    import Box from '@/Components/UI/Box.vue'
-    import { Link } from '@inertiajs/vue3'
-    defineProps({listings: Array})
+import ListingAddress from '@/Components/ListingAddress.vue'
+import ListingSpace from '@/Components/ListingSpace.vue'
+import Price from '@/Components/Price.vue'
+import Box from '@/Components/UI/Box.vue'
+import { Link } from '@inertiajs/vue3'
+defineProps({ listings: Array })
 </script>
