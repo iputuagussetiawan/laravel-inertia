@@ -27,7 +27,8 @@ class RealtorListingController extends Controller
                     ->listings()
                     //->mostRecent()
                     ->filter($filters)
-                    ->get()
+                    ->paginate(6)
+                    ->withQueryString()
             ]
         );
     }
