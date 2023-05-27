@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Offer;
 
 class OfferMade extends Notification
 {
@@ -14,9 +15,10 @@ class OfferMade extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(private Offer $offer)
     {
         //
+        
     }
 
     /**
@@ -26,7 +28,7 @@ class OfferMade extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -49,6 +51,10 @@ class OfferMade extends Notification
     {
         return [
             //
+            'offer_id' => $this->offer->id,
+            'listing_id' => $this->offer->listing_id,
+            'amount' => $this->offer->amount,
+            'bidder_id' => $this->offer->bidder_id
         ];
     }
 }
