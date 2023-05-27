@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ListingOfferController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealtorListingController;
@@ -55,3 +56,7 @@ Route::prefix('realtor')
     Route::resource('listing.image', RealtorListingImageController::class)
     ->only(['create', 'store', 'destroy']);
 });
+
+Route::resource('listing.offer', ListingOfferController::class)
+  ->middleware('auth')
+  ->only(['store']);
