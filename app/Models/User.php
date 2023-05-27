@@ -54,12 +54,18 @@ class User extends Authenticatable
             get: fn ($value) => $value,
             set: fn ($value) => Hash::make($value),
         );
-
-
     }
 
     public function listings(): HasMany
     {
         return $this->hasMany(Listing::class,'by_user_id');
+    }
+
+    public function offers(): HasMany
+    {
+        return $this->hasMany(
+            Offer::class,
+            'bidder_id'
+        );
     }
 }
